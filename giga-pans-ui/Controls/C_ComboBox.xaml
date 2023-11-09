@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="giga_pans_ui.Controls.C_ComboBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:giga_pans_ui.Controls"
+             mc:Ignorable="d">
+    <Grid>
+        <Border CornerRadius="5"
+                Background="Transparent"
+                BorderThickness="1"
+                BorderBrush="#ACACAC"
+                Height="30"
+                Padding="5 0 0 0">
+            <ComboBox Margin="2"
+                      BorderThickness="0"
+                      Background="Transparent"
+                      Foreground="{StaticResource MainTextColor}"
+                      VerticalContentAlignment="Center"
+                      Padding="5 0 0 0"
+                      FontFamily="Lato"
+                      FontWeight="Medium"
+                      FontSize="16"
+                      x:Name="Box" />
+        </Border>
+    </Grid>
+</UserControl>

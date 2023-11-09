@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "giga-pans-ui", "giga-pans-ui\giga-pans-ui.csproj", "{71F04FA8-6C22-479E-8C5F-19BA15825260}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-access", "api-access\api-access.csproj", "{22747C4F-80AB-49D1-9FDD-986FFBDB760C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71F04FA8-6C22-479E-8C5F-19BA15825260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71F04FA8-6C22-479E-8C5F-19BA15825260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71F04FA8-6C22-479E-8C5F-19BA15825260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71F04FA8-6C22-479E-8C5F-19BA15825260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22747C4F-80AB-49D1-9FDD-986FFBDB760C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22747C4F-80AB-49D1-9FDD-986FFBDB760C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22747C4F-80AB-49D1-9FDD-986FFBDB760C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22747C4F-80AB-49D1-9FDD-986FFBDB760C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5DC4759-44E1-4A58-937F-E1F0B73052A8}
+	EndGlobalSection
+EndGlobal

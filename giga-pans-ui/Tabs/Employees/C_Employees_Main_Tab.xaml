@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="giga_pans_ui.Tabs.Employees.C_Employees_Main_Tab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:giga_pans_ui.Tabs.Employees"
+             xmlns:helpers="clr-namespace:giga_pans_ui.Helpers"
+             xmlns:Controls="clr-namespace:giga_pans_ui.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="#F4F6F9">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Margin="10,10,10,0" Grid.Row="0">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <Label Content="Employees" Style="{StaticResource S_TabHeader}">
+                </Label>
+            </StackPanel>
+        </DockPanel>
+
+        <DockPanel Margin="10,5,10,15" Grid.Row="1">
+            <Border Style="{StaticResource S_TabSection}" CornerRadius="6" Padding="10,5,10,5" >
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <Controls:C_SearchBar x:Name="searchBar" KeyUp="SearchBarText_KeyUp" GotFocus="SearchBar_GotFocus" Margin="0,5" HorizontalAlignment="Left"/>
+                    <Button Click="Button_Add"  Grid.Column="2" Style="{DynamicResource ButtonBlue}" Content="Add new" Width="120" Margin="0,5" HorizontalAlignment="Right"/>
+                    <ScrollViewer x:Name="scrollView" Grid.Row="1" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Auto" Margin="0,10">
+                        <Grid>
+                            <Controls:C_LoadingList x:Name="loading_control" Grid.ColumnSpan="2" />
+                            <ListView x:Name="authorListView" Style="{DynamicResource S_ListView}" Grid.ColumnSpan="2" SelectionChanged="authorListView_SelectionChanged" SizeChanged="listView_SizeChanged" PreviewMouseWheel="authorListView_Scroll">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid Grid.Column="0" Margin="5">
+                                                        <Ellipse Height="40" Width="40" Stroke="Transparent" StrokeThickness="1">
+                                                            <Ellipse.Fill>
+                                                                <SolidColorBrush Color="Transparent" />
+                                                            </Ellipse.Fill>
+                                                        </Ellipse>
+                                                        <Image Source="/Images/user-image.png" Height="35" Width="35" Stretch="Uniform" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding first_Name}" Width="150" />
+                                        <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding last_Name}" Width="Auto" />
+                                        <GridViewColumn Header="Phone Number" DisplayMemberBinding="{Binding phone_number}" Width="Auto" />
+                                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding email}" Width="Auto" />
+                                        <GridViewColumn Header="Department" DisplayMemberBinding="{Binding Department.name}" Width="Auto" />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                    </ScrollViewer>
+
+                </Grid>
+            </Border>
+        </DockPanel>
+
+    </Grid>
+</UserControl>

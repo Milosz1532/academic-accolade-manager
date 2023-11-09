@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="giga_pans_ui.Tabs.Employees.Tabs.C_Employee_Summary"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:giga_pans_ui.Tabs.Employees.Tabs"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <Border Style="{StaticResource S_TabSection}" CornerRadius="0" Padding="5" Height="200">
+            <StackPanel>
+                <Label Style="{StaticResource S_ContentTitle}" Content="Book list"/>
+
+                <ListView x:Name="bookListView"  Style="{DynamicResource S_ListView}" Margin="0 10 0 0" SizeChanged="listView_SizeChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Book.title}" Width="150" />
+                            <GridViewColumn Header="Year" DisplayMemberBinding="{Binding Book.year}" Width="150" />
+                            <GridViewColumn Header="Month" DisplayMemberBinding="{Binding Book.month}" Width="200" />
+                            <GridViewColumn Header="Number of pages" DisplayMemberBinding="{Binding Book.number}" Width="200" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </Border>
+
+            <Border Style="{StaticResource S_TabSection}" CornerRadius="0" Padding="5" Height="200" Margin="0 10 0 0">
+            <StackPanel>
+                <Label Style="{StaticResource S_ContentTitle}" Content="Articles list"/>
+                <ListView x:Name="articlesListView" Grid.Row="2" Grid.ColumnSpan="2" Style="{DynamicResource S_ListView}" Margin="0 10 0 0" SizeChanged="listView_SizeChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Article.title}" Width="150" />
+                            <GridViewColumn Header="Year" DisplayMemberBinding="{Binding Article.year}" Width="150" />
+                            <GridViewColumn Header="Month" DisplayMemberBinding="{Binding Article.month}" Width="200" />
+                            <GridViewColumn Header="Number of pages" DisplayMemberBinding="{Binding Article.number}" Width="200" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </Border>
+
+        <Border Style="{StaticResource S_TabSection}" CornerRadius="0" Padding="5" Height="200" Margin="0 10 0 0">
+            <StackPanel>
+                <Label Style="{StaticResource S_ContentTitle}" Content="Conferences list"/>
+
+                <ListView x:Name="conferenceListView" Grid.Row="2" Grid.ColumnSpan="2" Style="{DynamicResource S_ListView}" Margin="0 10 0 0" SizeChanged="listView_SizeChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Conference.title}" Width="150" />
+                            <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Conference.address}" Width="150" />
+                            <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Conference.date, StringFormat={}{0:dd/MM/yyyy}}" Width="200" />
+                            <GridViewColumn Header="Organization" DisplayMemberBinding="{Binding Conference.organization}" Width="200" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </Border>
+
+        <Border Style="{StaticResource S_TabSection}" CornerRadius="0" Padding="5" Height="200" Margin="0 10 0 0">
+            <StackPanel>
+                <Label Style="{StaticResource S_ContentTitle}" Content="Research list"/>
+                <ListView x:Name="researchListView" Grid.Row="2" Grid.ColumnSpan="2" Style="{DynamicResource S_ListView}" Margin="0 10 0 0"  Cursor="" SizeChanged="listView_SizeChanged" >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Research.title}" Width="150" />
+                            <GridViewColumn Header="Start Date" DisplayMemberBinding="{Binding Research.date_start, StringFormat={}{0:dd/MM/yyyy}}" Width="200"  />
+                            <GridViewColumn Header="End Date" DisplayMemberBinding="{Binding Research.date_end, StringFormat={}{0:dd/MM/yyyy}}" Width="200" />
+                            <GridViewColumn Header="Function in a team" DisplayMemberBinding="{Binding Research.function_in_a_team, StringFormat={}{0:dd/MM/yyyy}}" Width="200" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+
+        
+</UserControl>

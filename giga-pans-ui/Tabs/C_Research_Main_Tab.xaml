@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="giga_pans_ui.Tabs.C_Research_Main_Tab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:giga_pans_ui.Tabs" xmlns:Controls="clr-namespace:giga_pans_ui.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="#F4F6F9">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Margin="10,10,10,0" Grid.Row="0">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <Label Content="Research" Style="{StaticResource S_TabHeader}">
+                </Label>
+            </StackPanel>
+        </DockPanel>
+
+        <DockPanel Margin="10,5,10,15" Grid.Row="1">
+            <Border Style="{StaticResource S_TabSection}" CornerRadius="6" Padding="10,5,10,5" >
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <Controls:C_SearchBar x:Name="searchBar" KeyUp="SearchBarText_KeyUp" GotFocus="SearchBar_GotFocus" Margin="0,5" HorizontalAlignment="Left"/>
+                    <Button x:Name="Button_Add" Grid.Column="2" Style="{DynamicResource ButtonBlue}" Content="Add new" Width="120" Margin="0,5" HorizontalAlignment="Right" Click="AddNewButtonClick"/>
+
+                    <ScrollViewer x:Name="scrollView" Grid.Row="1" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Auto" Margin="0,10">
+                        <Grid>
+                            <Controls:C_LoadingList x:Name="loading_control" Grid.ColumnSpan="2"/>
+                            <ListView x:Name="researchListView" Style="{DynamicResource S_ListView}" Grid.ColumnSpan="2" SizeChanged="listView_SizeChanged" SelectionChanged="listView_SelectionChanged" PreviewMouseWheel="researchListView_Scroll">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id}" Width="50" />
+                                        <GridViewColumn Header="Title" DisplayMemberBinding="{Binding title}" Width="200"/>
+                                        <GridViewColumn Header="Start date" DisplayMemberBinding="{Binding date_start, StringFormat={}{0:dd.MM.yyyy}}" Width="100"/>
+                                        <GridViewColumn Header="End date" DisplayMemberBinding="{Binding date_end, StringFormat={}{0:dd.MM.yyyy}}" Width="100" />
+                                        <GridViewColumn Header="Function in a team" DisplayMemberBinding="{Binding function_in_a_team}" Width="200"/>
+                                        <GridViewColumn Header="Source of funding" DisplayMemberBinding="{Binding source_of_funding}" Width="200"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                    </ScrollViewer>
+
+                </Grid>
+            </Border>
+        </DockPanel>
+
+    </Grid>
+</UserControl>

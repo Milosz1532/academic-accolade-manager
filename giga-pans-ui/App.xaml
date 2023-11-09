@@ -1,0 +1,27 @@
+﻿<Application x:Class="giga_pans_ui.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:giga_pans_ui"
+             StartupUri="LoadingScreen.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/S_Window.xaml" />
+                <ResourceDictionary Source="/Styles/S_Border.xaml" />
+                <ResourceDictionary Source="/Colors/Colors.xaml" />
+                <ResourceDictionary Source="/Styles/S_Button.xaml" />
+                <ResourceDictionary Source="/Styles/S_ListView.xaml" />
+                <ResourceDictionary Source="/Styles/S_TextBox.xaml" />
+                <ResourceDictionary Source="/Styles/S_TextBoxLabel.xaml" />
+                <ResourceDictionary Source="/Styles/S_TabHeader.xaml" />
+                <ResourceDictionary Source="/Styles/S_ComboBox.xaml" />
+                <ResourceDictionary Source="/Styles/S_TabSection.xaml" />
+                <ResourceDictionary Source="/Styles/S_ContentTitle.xaml" />
+                
+                <ResourceDictionary Source="/Styles/S_ScrollBar.xaml" />
+                <ResourceDictionary Source="/Styles/S_ProgressBar.xaml" />
+                <ResourceDictionary Source="/Styles/S_DatePickerTextBox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

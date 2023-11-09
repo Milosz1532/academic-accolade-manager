@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="giga_pans_ui.Tabs.Publications.C_Publications_Main_Tab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:giga_pans_ui.Tabs.Publications"
+             xmlns:Controls="clr-namespace:giga_pans_ui.Controls"
+             xmlns:helpers="clr-namespace:giga_pans_ui.Helpers"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="#F4F6F9">
+
+    <DockPanel Margin="25 25 25 25">
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <Image Source="/Images/window-article-icon-dark.png"  Width="36" Height="36" />
+            <Label Padding="10,4,0,0" Content="Publications" FontWeight="Medium" VerticalAlignment="Center" FontFamily="Lato" FontSize="26" Foreground="{StaticResource TitleTextColor}">
+            </Label>
+        </StackPanel>
+        <ScrollViewer>
+            <StackPanel>
+                <Controls:ExtendableList x:Name="booklistview" HeaderMappings="{Binding BookHeadersCollection}" ButtonText="Books" Loaded="booklistview_Loaded" />
+                <Controls:ExtendableList x:Name="articlelistview" HeaderMappings="{Binding ArticleHeadersCollection}" ButtonText="Articles" Loaded="articlelistview_Loaded" />
+                <Controls:ExtendableList x:Name="researchlistview" HeaderMappings="{Binding ResearchHeadersCollection}" ButtonText="Researches" Loaded="researchlistview_Loaded" />
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

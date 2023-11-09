@@ -1,0 +1,58 @@
+﻿<Window x:Class="giga_pans_ui.W_SelectAuthor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:helpers="clr-namespace:giga_pans_ui.Helpers"
+        xmlns:Controls="clr-namespace:giga_pans_ui.Controls"
+        xmlns:local="clr-namespace:giga_pans_ui"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        Title="W_BookManagement" Width="500" Height="500" Style="{DynamicResource S_Window}">
+    <Window.Effect>
+        <DropShadowEffect BlurRadius="30" ShadowDepth="5" RenderingBias="Quality" Color="#FF676767" />
+    </Window.Effect>
+    <Border Style="{DynamicResource S_Border}" Margin="30">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.35*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="0.5*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal"  Margin="10">
+                <!--<Image Source="/Images/window-books-icon-dark.png" MaxHeight="50" />-->
+                <TextBlock Foreground="{DynamicResource MainTextColor}" FontSize="23" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0" ><Run Language="pl-pl" Text="Select Author" /></TextBlock>
+            </StackPanel>
+
+            <StackPanel  Grid.Row="1" Grid.ColumnSpan="2" Margin="15 0 15 0">
+                <Controls:C_SearchBar />
+            </StackPanel>
+
+            <Grid Grid.Row="2" Grid.ColumnSpan="2" Margin="10">
+                <Controls:C_LoadingList x:Name="loading_control" Grid.ColumnSpan="2" />
+                <ListView x:Name="authorListView" Style="{DynamicResource S_ListView}" Grid.ColumnSpan="2" helpers:CornerRadiusHelper.CornerRadius="10">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id}" Width="80" />
+                            <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding first_Name}" Width="150" />
+                            <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding last_Name}" Width="150" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+
+            <DockPanel Grid.Row="3" LastChildFill="False">
+                <Button Style="{DynamicResource ButtonWhite}" Margin="20,15" Height="40" MinWidth="140" DockPanel.Dock="Left" Content="Cancel" x:Name="Cancel" />
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="1" LastChildFill="False">
+                <Button Style="{DynamicResource ButtonBlue}" Margin="20,15" Height="40" MinWidth="140" DockPanel.Dock="Right" Content="Select" x:Name="SelectAuthorBtn" />
+            </DockPanel>
+        </Grid>
+    </Border>
+</Window>

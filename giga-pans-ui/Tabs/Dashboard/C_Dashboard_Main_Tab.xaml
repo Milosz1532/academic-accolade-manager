@@ -1,0 +1,280 @@
+﻿<UserControl x:Class="giga_pans_ui.Tabs.Dashboard.C_Dashboard_Main_Tab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:giga_pans_ui.Tabs.Dashboard"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="#F4F6F9">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="/Fonts/Poppins-Regular.ttf #Poppins"/>
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+
+            <Style TargetType="TextBlock" x:Key="text-bold">
+                <Setter Property="FontFamily" Value="/Fonts/Poppins-SemiBold.ttf #Poppins"/>
+                <Setter Property="FontSize" Value="14"/>
+
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.8*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Margin="10,10,10,0" Grid.Row="0">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <Label Content="Dashboard" Style="{StaticResource S_TabHeader}">
+                </Label>
+            </StackPanel>
+        </DockPanel>
+        
+        <!-- Employees, Books, Conferences, Publications -->
+        <!-- Employees -->
+        <DockPanel Margin="10,5,15,5" Grid.Row="1" Grid.Column="0">
+            <Border Style="{StaticResource S_TabSection}" CornerRadius="6" Padding="10,5,10,5">
+                <Grid VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Style="{StaticResource text-bold}" Grid.Row="0" Grid.ColumnSpan="3" Text="Employees" />
+                    <TextBlock Style="{StaticResource text-bold}" x:Name="EmployeesCount" Grid.Row="1" Text="24"  />
+                    <fa:IconBlock Grid.Row="1" Grid.Column="2" Icon="UserPlus"  Foreground="{DynamicResource MildBlue}" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                    <TextBlock x:Name="EmployeesLastEdit" Grid.Row="2" Grid.ColumnSpan="3" Text="Last added: 14.07.2023" FontSize="10px" Foreground="#E3E3E3" />
+                </Grid>
+            </Border>
+        </DockPanel>
+
+        <!-- Books -->
+        <DockPanel Margin="10,5,15,5" Grid.Row="1" Grid.Column="1">
+            <Border Style="{StaticResource S_TabSection}" CornerRadius="6" Padding="10,5,10,5">
+                <Grid VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1.4*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Style="{StaticResource text-bold}" Grid.Row="0" Grid.ColumnSpan="3" Text="Books" />
+                    <TextBlock Style="{StaticResource text-bold}" x:Name="BooksCount" Grid.Row="1" Text="43"  />
+                    <fa:IconBlock Grid.Row="1" Grid.Column="2" Icon="BookOpen"  Foreground="{DynamicResource MildBlue}" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                    <TextBlock x:Name="BooksLastEdit" Grid.Row="2" Grid.ColumnSpan="3" Text="Last added: 14.07.2023" FontSize="10px" Foreground="#E3E3E3" />
+                </Grid>
+            </Border>
+        </DockPanel>
+        
+        <!-- Conferences -->
+        <DockPanel Margin="15,5,10,5" Grid.Row="1" Grid.Column="2">
+            <Border Style="{StaticResource S_TabSection}" CornerRadius="6" Padding="10,5,10,5">
+                <Grid VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1.4*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Style="{StaticResource text-bold}" Grid.Row="0" Grid.ColumnSpan="3" Text="Conferences" />
+                    <TextBlock Style="{StaticResource text-bold}" x:Name="ConferencesCount" Grid.Row="1" Text="12"  />
+                    <fa:IconBlock Grid.Row="1" Grid.Column="2" Icon="MicrophoneLines"  Foreground="{DynamicResource MildBlue}" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                    <TextBlock x:Name="ConferencesLastEdit" Grid.Row="2" Grid.ColumnSpan="3" Text="Last added: 14.07.2023" FontSize="10px" Foreground="#E3E3E3" />
+                </Grid>
+            </Border>
+        </DockPanel>
+        
+        <!-- Publications -->
+        <DockPanel Margin="15,5,10,5" Grid.Row="1" Grid.Column="3">
+            <Border Style="{StaticResource S_TabSection}" CornerRadius="6" Padding="10,5,10,5">
+                <Grid VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1.4*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Style="{StaticResource text-bold}" Grid.Row="0" Grid.ColumnSpan="3"><Run Language="pl-pl" Text="Articles"/></TextBlock>
+                    <TextBlock Style="{StaticResource text-bold}" x:Name="ArticlesCount" Grid.Row="1" Text="150"/>
+                    <fa:IconBlock Grid.Row="1" Grid.Column="2" Icon="Scroll" Foreground="{DynamicResource MildBlue}" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                    <TextBlock x:Name="PublicationsLastEdit" Grid.Row="2" Grid.ColumnSpan="3" Text="Last added: 14.07.2023" FontSize="10px" Foreground="#E3E3E3" />
+                </Grid>
+            </Border>
+        </DockPanel>
+        
+        <!-- Middle chart -->
+        <DockPanel Margin="10,5" Grid.Row="2" Grid.ColumnSpan="4">
+            <Border Style="{StaticResource S_TabSection}" CornerRadius="6" Padding="10,5,10,5" >
+                <lvc:CartesianChart Series="{Binding ColumnCollection}" >
+                    <lvc:CartesianChart.AxisX>
+                        <lvc:Axis Labels="{Binding Labels}"></lvc:Axis>
+                    </lvc:CartesianChart.AxisX>
+                    <lvc:CartesianChart.AxisY>
+                        <lvc:Axis LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                    </lvc:CartesianChart.AxisY>
+                </lvc:CartesianChart>
+            </Border>
+        </DockPanel>
+
+
+
+        <!-- Lower chart and content -->
+        <Grid Grid.Row="3" Grid.ColumnSpan="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="3.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <DockPanel Margin="10,5,10,15" Grid.Column="0">
+                <Border Style="{StaticResource S_TabSection}" CornerRadius="6" Padding="10,5,10,5">
+                    <StackPanel>
+
+
+                        <ScrollViewer Height="{Binding Path=ActualHeight, 
+           RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UIElement}}">
+                            <StackPanel>
+
+
+                                <StackPanel.Resources>
+                                    <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource {x:Type ListBox}}">
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="IsHitTestVisible" Value="False"/>
+                                        <Setter Property="Margin" Value="0"/>
+                                        <Setter Property="Padding" Value="0"/>
+
+                                    </Style>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="Margin" Value="0"/>
+                                        <Setter Property="Padding" Value="0"/>
+                                        <Setter Property="FontFamily" Value="/Fonts/Poppins-Regular.ttf #Poppins"/>
+                                        <Setter Property="Foreground" Value="{DynamicResource TitleTextColor}"/>
+                                    </Style>
+                                </StackPanel.Resources>
+
+                                <!-- Recent Articles -->
+                            <StackPanel>
+                                <TextBlock Margin="0 0 0 5" Style="{StaticResource text-bold}" Text="Recent Articles"/>
+                                    <ListBox ItemsSource="{Binding RecentArticles}" VerticalContentAlignment="Top">
+                                        <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                                <TextBlock Text="New article: "/>
+                                                <TextBlock Text="{Binding title}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
+
+                            <!-- Recent Books -->
+                            <StackPanel>
+                                    <TextBlock Margin="0 0 0 5" Style="{StaticResource text-bold}" Text="Recent Books"/>
+                                    <ListBox ItemsSource="{Binding RecentBooks}" VerticalContentAlignment="Top">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                                    <TextBlock Text="New book: "/>
+                                                    <TextBlock Text="{Binding title}"/>
+                                                </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
+
+                            <!-- Recent Conferences -->
+                            <StackPanel>
+                                    <TextBlock Margin="0 0 0 5" Style="{StaticResource text-bold}" Text="Recent Conferences"/>
+                                    <ListBox ItemsSource="{Binding RecentConferences}" VerticalContentAlignment="Top">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                                    <TextBlock Text="New conference: "/>
+                                                    <TextBlock Text="{Binding title}"/>
+                                                </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
+
+                            <!-- Recent Researches -->
+                            <StackPanel>
+                                    <TextBlock Margin="0 0 0 5" Style="{StaticResource text-bold}" Text="Recent Researches"/>
+                                <ListBox ItemsSource="{Binding RecentResearches}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                                <TextBlock Text="New research: "/>
+                                                <TextBlock Text="{Binding title}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </ScrollViewer>
+                    </StackPanel>
+                </Border>
+            </DockPanel>
+
+
+
+
+            <!-- Lower chart -->
+            <DockPanel Margin="10,5,10,15" Grid.Column="1" Height="Auto">
+                <Border Style="{StaticResource S_TabSection}" CornerRadius="6" Padding="10,5,10,5" >
+                    <DockPanel>
+                            <lvc:PieChart Name="EmployeeChart" Series="{Binding SeriesCollection}" Grid.Row="1" 
+LegendLocation="Bottom" InnerRadius="60" Margin="0 5" MaxHeight="400">
+                                <lvc:PieChart.ChartLegend>
+                                    <lvc:DefaultLegend BulletSize="20"></lvc:DefaultLegend>
+                                </lvc:PieChart.ChartLegend>
+                                <lvc:PieChart.DataTooltip>
+                                    <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
+                                </lvc:PieChart.DataTooltip>
+                            </lvc:PieChart>
+                    </DockPanel>
+                    
+                    
+                </Border>
+            </DockPanel>
+
+
+        </Grid>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="giga_pans_ui.Controls.ExtendableList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:giga_pans_ui.Controls"
+             xmlns:helpers="clr-namespace:giga_pans_ui.Helpers"
+
+             Loaded="UserControl_Loaded"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Opacity" Value="0.5" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <EventTrigger RoutedEvent="Button.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                         To="1"
+                                         Duration="0:0:0.3" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Button.MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                         To="0.5"
+                                         Duration="0:0:0.3" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
+
+        <!-- Button to extend the content -->
+        <Border BorderThickness="0,0,0,3"
+                BorderBrush="{DynamicResource DeepBlue}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ExtendButton"
+                Grid.Column="0"
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Left"
+                Padding="10"
+                Click="Button_Click"
+                BorderThickness="0"
+                Background="Transparent"
+                Foreground="{DynamicResource MainTextColor}"
+                FontFamily="Lato"
+                FontSize="15"
+                FontWeight="Medium"
+                Content="{Binding ButtonText, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                </Button>
+                <StackPanel Name="Search" Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Center" Visibility="Collapsed">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <local:C_SearchBar />
+                        </StackPanel>
+
+                        <Button Grid.Column="1" Style="{DynamicResource ButtonBlue}" Content="Add new" Width="100" Margin="5,0,0,0" />
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Container for hidden content -->
+        <Grid x:Name="HiddenContentContainer" Grid.Row="1" Visibility="Collapsed">
+            <ListView x:Name="ListViewControl" Style="{DynamicResource S_ListView}" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=local:ExtendableList}, Path=ItemSource}" Margin="0,10,0,0" helpers:CornerRadiusHelper.CornerRadius="2" />
+        </Grid>
+    </Grid>
+</UserControl>
